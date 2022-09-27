@@ -28,7 +28,7 @@ nav a {
     display: inline-block;
     font-weight: 600;
     text-decoration: none;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.3s ease-in-out;
     position: relative;
     
 }
@@ -56,7 +56,7 @@ div.gallery {
   }
   
   div.gallery:hover {
-    transition: all 0.3s ease-in-out;
+    transition: all 0.5s ease-in-out;
     background-color: #000000;
     color: #ffffff;
   }
@@ -90,12 +90,31 @@ div.gallery {
     background-color: #000000;;
 }  
 
+.welcome {
+    float: right;
+    margin: 0;
+    padding: 2px;
+    font-weight: 600;
+    display: inline;
+
+
+}
+.welcomeGreeting {
+    flex: 50%;
+}
+.welcomeTime {
+    flex: 50%;
+}
+
+
 /*      TABLET       */
 
 @media only screen and (max-width: 600px) {
    
     nav {
         background-color: black;
+        height: 50px;
+        text-align: left;
     }
     nav a {
         color: white;
@@ -111,6 +130,12 @@ div.gallery {
         width: 100%;
         height:275px;
     }
+    .welcome {
+        color: white;
+        padding: 2px;
+    }
+  
+    
 
 }
 
