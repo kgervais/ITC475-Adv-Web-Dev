@@ -135,7 +135,10 @@ div.gallery {
         padding: 2px;
     }
   
-    
+    .contact{
+        display: flex; 
+        margin-bottom: 40px;
+        }
 
 }
 

@@ -6,6 +6,8 @@
         <title>Mega Travel- Contact Agent</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/styles.css" rel="stylesheet">
+        <script src="contact.js" defer></script>
+        <script src="activity.js" defer></script>
     </head>
     <body>
         <header>
@@ -22,8 +24,61 @@
         </nav>
         <main>
         <h1>Contact Agent</h1>
-        <div class="p"> We would love to know more about your travel plans. Please fill out this contact form to get in touch with a travel agent.
-        </div>
+        <div class="p"> We would love to know more about your travel plans. Please fill out this contact form to get in touch with a travel agent.</div>
+            <form id="contact" action="" method="post">
+
+                 <div style="margin-top: 5px; margin-bottom: 5px;">
+                    <label for="firstname">First name: </label>
+                    <input id="firstname" name="firstname" type="text">
+                    </div>
+                
+                    <div style="margin-bottom: 5px;">
+                    <label for="lastname">Last name: </label>
+                    <input id="lastname" name="lastname" type="text">
+                </div>
+
+                    <div style="margin-bottom: 5px;">
+
+                    <label for="email">Email: </label>
+                    <input id="email" name="email" type="text">
+                </div>
+                
+
+                    <div style="margin-bottom: 5px;">
+                    <label for="phone">Phone number: </label>
+                    <input id="phone" name="phone" type="text">
+                </div>
+
+                    <div style="margin-bottom:5px; font-weight: bold;">Number of travelers</div>
+                    <div style="margin-bottom: 10px;">
+                        <input id="tAdult" name="tAdult" type="number" style="max-width: 25px;" min="0" placeholder="0">
+                        <label for="tAdult">Adults</label>
+                    </div>
+
+                    <div>
+                        <input id="tChild" name="tChild" type="number" style="max-width: 25px;" min="0" value="0">
+                        <label for="tChild">Children</label>
+                    </div>
+
+                    <div style="margin-bottom:5px; margin-top: 5px; font-weight: bold;">Travel dates</div>
+                    <label for="startDate">Start date</label>
+                    <input id="startDate" type="date">
+                    <label for="endDate">End date</label>
+                    <input id="endDate" type="date">
+
+                    <div style="margin-top: 5px; font-weight: bold;">Destination</div>
+                    <select name="destination" id="destination">
+                        <option value="destination" selected>Select your Destination</option>
+                        <option value="maldives">Maldives, South Asia</option>
+                        <option value="newzealand">New Zealand</option>
+                        <option value="venice">Venice, Italy</option>
+                        <option value="cancun">Cancun, Mexico</option>
+                    </select>
+                
+        <div id="activity"></div>
+            <div class="submitContainer">
+                <input id="submitBtn" type="button" value="Submit"> <input id="clear" type="reset" value="Clear form">
+            </div></form>
         <footer>
             <div style="margin-bottom: 20px;">Copyright Protected. All rights reserved.</div>
                 <div> MEGA TRAVELS mega@travels.com </div>
