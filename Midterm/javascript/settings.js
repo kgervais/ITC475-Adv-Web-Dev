@@ -1,11 +1,21 @@
+//Kayla Gervais
 const deviceDropDown = document.getElementById('chooseDevice');
 const startTimeField = document.getElementById('startTime');
 const endTimeField = document.getElementById('endTime');
 
 var selectedDevice;
-var startTime = Array(11);
-var endTime = Array(11);
-
+var startTime;
+startTime = JSON.parse(localStorage.getItem('startTimes'));
+if(startTime == null)
+{
+    startTime = Array(11);
+}
+var endTime;
+endTime = JSON.parse(localStorage.getItem('endTimes'));
+if(endTime == null)
+{
+    endTime = Array(11);
+}
 function SelectedDeviceChanged () {
     selectedDevice = deviceDropDown.value;
     if(startTime[selectedDevice] != undefined)
@@ -34,10 +44,18 @@ function EndTimeChanged () {
     endTime[selectedDevice] = endTimeField.value;
 }
 
-function onClear () {
-    // clear all start and end times
+// Clear all data on form
+function clearAll () {
+    for(let ii = 0; ii < 11; ii++) {
+        startTime[ii] = '';
+        endTime[ii] = '';
+    }
+    startTimeField.value = startTime[selectedDevice] = '';
+    endTimeField.value = startTime[selectedDevice] = '';
 }
 
-function onSaveSettings () {
-    // Save settings to local ??
+// Save settings to local storage
+function saveSettings () {
+    localStorage.setItem('startTimes', JSON.stringify(startTime));
+    localStorage.setItem('endTimes', JSON.stringify(endTime));
 }

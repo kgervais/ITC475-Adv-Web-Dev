@@ -1,3 +1,4 @@
+//Kayla Gervais
 var livingRoomLampOn = document.getElementById('livingRoomOn');
 var livingRoomLampOff = document.getElementById('livingRoomOff');
 var bedroom1On = document.getElementById('bedroom1On');
@@ -22,53 +23,62 @@ var diningOff = document.getElementById('diningOff');
 var diningOn = document.getElementById('diningOn');
 var now = new Date ();
 var showTime = document.getElementById('showTime');
+var simulationRunning = false;
+var deviceOnElementArray = [livingRoomLampOn, bedroom1On, bedroom2On, bathroomFanOn,
+                            washerOn, dryerOn, fdoorLock, bdoorLock, garageLock, fanOn,
+                            diningOn];
+var deviceOffElementArray = [livingRoomLampOff, bedroom1Off, bedroom2Off, bathroomFanOff,
+                            washerOff, dryerOff, fdoorUnlock, bdoorUnlock, garageUnlock, fanOff,
+                            diningOff];
+                                                        
+var startTimeArray = JSON.parse(localStorage.getItem('startTimes'));
+var endTimeArray = JSON.parse(localStorage.getItem('endTimes'));
+if (startTimeArray == null) startTimeArray = Array(11);
+if (endTimeArray == null) endTimeArray = Array(11);
 
 showTime.innerHTML = getTime(now);
 
 setInterval(clock, 1000);
 
 function clock () {
-    now = new Date ();
-    showTime.innerHTML = getTime(now);
-}
-
-function runSimulation() {    
-    showTime.style.visibility="visible";
-    // Initialize the display to show all devices off by default
-    initializeDisplay();
-    // Check one by one if device need to be on or off then show the correct graphic
-}
-
-function initializeDisplay() {
-    // Set everything to OFF by default   
-    livingRoomLampOff.style.visibility ="visible";
-    bedroom1Off.style.visibility="visible";
-    bedroom2Off.style.visibility="visible";
-    bathroomFanOff.style.visibility="visible";
-    washerOff.style.visibility="visible";
-    dryerOff.style.visibility="visible";
-    fdoorUnlock.style.visibility="visible";
-    bdoorUnlock.style.visibility="visible";
-    garageUnlock.style.visibility="visible";
-    fanOff.style.visibility="visible";
-    diningOff.style.visibility="visible";
-}
-
-
-function getTime(date) {
-    var hour, min, ampm;
-
-    if(date.getHours() <= 11) {
-        hour = date.getHours();
-        ampm = 'AM';
-    } else {
-        hour = date.getHours() - 12;
-        ampm = 'PM';
+    if(simulationRunning) {
+        now = new Date ();
+        showTime.innerHTML = getTime(now);
+        updateDevices(now);
     }
-    if(hour==0) { hour = 12; }
+}
 
+function runSimulation() {
+    simulationRunning = true;    
+    showTime.style.visibility="visible";
+}
+
+// get time in 24 hour format HH:MM
+function getTime(date) {
+    var hour, min;
+
+    hour = date.getHours();
+    if(hour < 10) { hour = '0' + hour; }
     min  = date.getMinutes();
     if(min < 10) { min = '0' + min; }
 
-    return hour + ':' + min + ' ' + ampm;
+    return hour + ':' + min;
+}
+
+function updateDevices (date) {
+    for(let ii = 0; ii < 11; ii++)
+    {
+        // Turn on when current time is between start time and end time
+        if((getTime(date) >= startTimeArray[ii]) && (getTime(date) < endTimeArray[ii]) &&
+            startTimeArray[ii] != '' && endTimeArray[ii] != '')
+        {
+            deviceOnElementArray[ii].style.visibility = "visible";
+            deviceOffElementArray[ii].style.visibility = "hidden";
+        }
+        else
+        {
+            deviceOnElementArray[ii].style.visibility = "hidden";
+            deviceOffElementArray[ii].style.visibility = "visible";
+        }
+    }
 }
