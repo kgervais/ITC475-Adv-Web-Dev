@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <title>Smart Home Simulator Settings</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="javascript/settings.js" defer></script>
+
+</head>
+<body>
+    <div class="hero-image"></div>
+    <div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </nav>
+    </div>
+    <main>
+        <h1 style="text-align: center">Smart Home Settings</h1>
+        <p style="text-align: center">To change the settings of your smart home device, first select your device from the list. Then, enter your start and end times.</p>
+        <div id="settings">
+            <div id="device">
+                <label for="chooseDevice">Device List</label>
+                <select id="chooseDevice" name="device" onchange="SelectedDeviceChanged()">
+                    <option value="" selected label="Select your device"></option>
+                    <option value="0">Living Room Lamp</option>
+                    <option value="1">Bedroom #1 Desk Lamp</option>
+                    <option value="2">Bedroom #2 Floor Lamp</option>
+                    <option value="3">Bathroom Fan</option>
+                    <option value="4">Washer</option>
+                    <option value="5">Dryer</option>
+                    <option value="6">Front Door</option>
+                    <option value="7">Back Door</option>
+                    <option value="8">Garage Door</option>
+                    <option value="9">Kitchen Fan</option>
+                    <option value="10">Dining Room Light</option>
+                </select>
+            </div>
+            <div>
+                <label for="startTime">Start time</label>
+                <input id="startTime" type="time" name="startTime" oninput="StartTimeChanged()">
+            </div>
+
+            <div>
+                <label for="endTime">End time</label>
+                <input id="endTime" type="time" name="endTime" oninput="EndTimeChanged()"">
+            </div>
+
+        </div>
+
+        <div id="button">
+            <input id="addDevice" type="button" value="Save Settings" onclick="saveSettings()">
+            <input type="button" value="Clear" onclick="clearDevice()">
+        </div>
+    </main>
+</body>
+</html>
