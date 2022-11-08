@@ -19,6 +19,10 @@ body {
     width: 850px;
     margin: 10px;
  }
+ .container {
+    width: auto;
+    padding: 10px;
+}
 nav {
     text-align: center;
 } 
@@ -106,6 +110,18 @@ div.gallery {
     flex: 50%;
 }
 
+.clientTable {
+    border: 1px solid #000000;
+    background-color: #f3f3f3;
+    margin-bottom: 20px;
+    padding: 10px;
+    display: flex;
+}
+.clientTable p {
+    margin-block-start: 0.6em;
+    margin-block-end: 0.6em;
+}    
+
 
 /*      TABLET       */
 
@@ -139,6 +155,7 @@ div.gallery {
         display: flex; 
         margin-bottom: 40px;
         }
+
 
 }
 
