@@ -57,9 +57,9 @@ function getDestination($destination='') {
 </nav>
 
 <main>
-<h1><center>Admin</center>
+    
+<h1><center>Admin</center></h1>
 
-//need to add in pagination for the entries
 <div class="container">
 <?php foreach($result as $row) { ?>
 <div>              
