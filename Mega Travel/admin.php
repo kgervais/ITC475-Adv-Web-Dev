@@ -1,7 +1,16 @@
 <?php
+echo "<form method ='POST' action= ''>";
+if(!isset($a))
+{
+$a=0;
+}
+else
+{
+}
+
 $conn = myDatabase();
 
-$query = "SELECT * FROM client";
+$query = "SELECT * FROM client LIMIT 1 OFFSET " .$a;
 $result = mysqli_query($conn, $query);
 function myDatabase() {
     $connect = new mysqli("localhost", "root", "", "megatravel");
@@ -27,6 +36,23 @@ function getDestination($destination='') {
         default:
             return '';
     }
+}
+
+if (isset($_POST["button"]))
+{
+    global $a;
+    global $conn;
+    global $query;
+    $a++;
+    mysqli_query($conn, $query);
+    echo $a;
+    return $a;
+}
+
+function previousRecord() {
+    global $a;
+    $a--;
+    return $a;
 }
 ?>
 
@@ -60,7 +86,7 @@ function getDestination($destination='') {
     
 <h1><center>Admin</center></h1>
 
-<div class="container">
+<div class="adminContainer">
 <?php foreach($result as $row) { ?>
 <div>              
     <div>
@@ -89,6 +115,11 @@ function getDestination($destination='') {
     </div>
 </div>
 <?php } ?>
+   
+<div id="next"></div>
+            <div class="nextContainer">
+                <input type="button" value="Back" action=$_POST[$a]> <input type="button" value="Next">
+            </div></form>
             </div>
 
             <footer>
