@@ -1,5 +1,6 @@
 var submit = document.getElementById('submitBtn');
 var clear = document.getElementById('clear');
+var activity = document.getElementById('activity');
 var form = document.getElementById('contact');
 var firstname = document.getElementById('firstname');
 var lastname = document.getElementById('lastname');
@@ -11,7 +12,7 @@ var startDate = document.getElementById('startDate');
 var endDate = document.getElementById('endDate');
 
 clear.onclick = function () {
-    activities.innerHTML = '';
+    activity.innerHTML = '';
 }
 
 submit.onclick = function() {

@@ -17,8 +17,8 @@ function getClient() {
         'adults' => (isset($_POST['tAdult'])) ? $_POST['tAdult'] : '',
         'children' => (isset($_POST['tChild'])) ? $_POST['tChild'] : '',
         'destination' => (isset($_POST['destination'])) ? $_POST['destination'] : '',
-        'startDATE' => (isset($_POST['startDATE'])) ? $_POST['startDATE'] : '',
-        'endDATE' => (isset($_POST['endDATE'])) ? $_POST['endDATE'] : '',
+        'startDATE' => (isset($_POST['startDate'])) ? $_POST['startDate'] : '',
+        'endDATE' => (isset($_POST['endDate'])) ? $_POST['endDate'] : '',
         'activities' => getActivity()
     );
     return $client;
