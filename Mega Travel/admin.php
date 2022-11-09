@@ -1,17 +1,17 @@
 <?php
+error_reporting(E_ERROR | E_PARSE);
 echo "<form method ='POST' action= ''>";
-if(!isset($a))
+
+$id = $_GET['id'];
+if(!isset($id))
 {
-$a=0;
-}
-else
-{
+    $id = 1;
 }
 
 $conn = myDatabase();
 
-$query = "SELECT * FROM client LIMIT 1 OFFSET " .$a;
-$result = mysqli_query($conn, $query);
+$query = "SELECT * FROM client WHERE id=$id";
+$result = mysqli_query($conn, $query, );
 function myDatabase() {
     $connect = new mysqli("localhost", "root", "", "megatravel");
     if (!$connect) { die("Connection failed: " . mysqli_connect_error()); }
@@ -38,7 +38,7 @@ function getDestination($destination='') {
     }
 }
 
-if (isset($_POST["button"]))
+if (isset($_POST["next"]))
 {
     global $a;
     global $conn;
@@ -115,13 +115,24 @@ function previousRecord() {
     </div>
 </div>
 <?php } ?>
-   
-<div id="next"></div>
-            <div class="nextContainer">
-                <input type="button" value="Back" action=$_POST[$a]> <input type="button" value="Next">
-            </div></form>
-            </div>
 
+<div class="group">
+<?php
+// Previous button 
+$previous= mysqli_query($conn, "SELECT * FROM client WHERE ID<$id order by ID DESC");
+
+if($row = mysqli_fetch_array($previous))
+{
+  echo '<a href="admin.php?id='.$row['ID'].'"><button type="button">Previous</button></a>';  
+} 
+
+// Next button 
+$next = mysqli_query($conn, "SELECT * FROM client WHERE ID>$id order by ID ASC");
+if($row = mysqli_fetch_array($next))
+{
+  echo '<a href="admin.php?id='.$row['ID'].'"><button type="button">Next</button></a>';  
+} 
+?>
             <footer>
          <div style="margin-bottom: 20px;">Copyright Protected. All rights reserved.</div>
              <div> MEGA TRAVELS mega@travels.com </div>

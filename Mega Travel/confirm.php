@@ -46,8 +46,8 @@ function formatDate($date='') {
 function getActivity() {
     $activities = '';
     for($i=1;$i<=5;$i++) {
-        if(isset($_POST['activity' . $i]) && $_POST['activity' . $i]) {
-            $activities .= $_POST['activity' . $i] . ', ';
+        if(isset($_POST['activities' . $i]) && $_POST['activities' . $i]) {
+            $activities .= $_POST['activities' . $i] . ', ';
         }
     }
     if($activities) {
