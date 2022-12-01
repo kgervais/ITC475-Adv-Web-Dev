@@ -17,4 +17,18 @@ body{
     margin-right:auto;
     margin-left:auto
  }
- 
+
+
+header {
+  background-color: rgb(2, 3, 41);
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+.card {
+background: transparent;
+height: 240px;
+color: white;
+
+}

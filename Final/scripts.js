@@ -5,6 +5,9 @@ var finishLine = (window.innerWidth - (window.innerWidth * 0.20));
 var declareWinner = false;
 var nyanWin= document.getElementById('nyanWin');
 var pusheenWin= document.getElementById('pusheenWin');
+var hamtaroWin= document.getElementById('hamtaroWin');
+var booWin= document.getElementById('booWin');
+
 
 function ChangeLightColor() {
     var raceLight = document.getElementById("raceLight");
@@ -16,6 +19,9 @@ function ChangeLightColor() {
         raceLight.src = startRace;
         nyanWin.style.visibility="hidden";
         pusheenWin.style.visibility="hidden";
+        hamtaroWin.style.visibility="hidden";
+        booWin.style.visibility="hidden";
+
         ResetRace();
     }
 }
@@ -25,6 +31,9 @@ function StartRace() {
     declareWinner = false;
     ZoomZoom("nyan");
     ZoomZoom("pusheen");
+    ZoomZoom("hamtaro");
+    ZoomZoom("boo");
+
 }
 
 function ZoomZoom(racerId) {
@@ -44,6 +53,12 @@ function ZoomZoom(racerId) {
             if(racerId == "nyan") {
               nyanWin.style.visibility="visible";
             }
+            if(racerId == "hamtaro") {
+                hamtaroWin.style.visibility="visible";
+              }
+            if(racerId == "boo") {
+                booWin.style.visibility="visible";
+              }
             else {
               pusheenWin.style.visibility="visible";
             }
@@ -58,6 +73,9 @@ function ZoomZoom(racerId) {
     function ResetRace() {
         ResetRacer("nyan");
         ResetRacer("pusheen");
+        ResetRacer("hamtaro");
+        ResetRacer("boo");
+
     }
 
     function ResetRacer(racerId) {
