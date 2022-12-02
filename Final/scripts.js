@@ -8,6 +8,10 @@ var pusheenWin= document.getElementById('pusheenWin');
 var hamtaroWin= document.getElementById('hamtaroWin');
 var booWin= document.getElementById('booWin');
 
+let nyanChosen = false;
+let pusheenChosen = false;
+let hamtaroChosen = false;
+let booChosen = false;
 
 function ChangeLightColor() {
     var raceLight = document.getElementById("raceLight");
@@ -88,3 +92,7 @@ function ZoomZoom(racerId) {
 function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
+
+function addRacer(racer){
+
+    

@@ -12,44 +12,42 @@
       <title>The Greatest Race</title>
     </head>
     <body>
-        <header>
+     <header>
       <h1 class="display-1">The Greatest Race</h1>
-      <h2 class="display-6">Choose Your Racer!</h2>
-        </header>
+      <h2 class="display-6">Choose Your Racers!</h2>
+    </header>
+    <main>
             <div class="card-group">
-                <div class="card" id="nyan" onclick="addSelectedRacer('nyan');">
+                <div class="card text-center" id="nyan">
                     <img src="nyan2.png" alt="poptart cat" class="card-img-top">
                     <div class="card-body">
-                        <h5 class="card-header bg-secondary">Nyan</h5>
+                        <a href="#" class="btn btn-primary" onclick="addRacer('nyan')">Nyan</a>
                     </div>
                 </div>
-                <div class="card" id="pusheen" onclick="addSelectedRacer('pusheen');">
+                <div class="card text-center" id="pusheen">
                     <img src="pusheen.png" alt="gray cat" class="card-img-top">
                     <div class="card-body">
-                        <h5 class="card-header bg-secondary">Pusheen</h5>
+                        <a href="#" class="btn btn-primary" onclick="addRacer('pusheen');">Pusheen</a>
                     </div>
                 </div>
-                <br>
-                <div class="card" id="hamtaro" onclick="addSelectedRacer('hamtaro');">
+                <div class="card text-center" id="hamtaro">
                     <img src="hamtaro.png" alt="hamster" class="card-img-top">
                     <div class="card-body">
-                        <h5 class="card-header bg-secondary">Hamtaro</h5>
+                        <a href="#" class="btn btn-primary" onclick="addRacer('hamtaro');">Hamtaro</a>
                     </div>
                 </div>
-                <div class="card" id="boo" onclick="addSelectedRacer('boo');">
+                <div class="card text-center" id="boo">
                     <img src="boo.png" alt="ghost" class="card-img-top">
                     <div class="card-body">
-                        <h5 class="card-header bg-secondary">Boo</h5>
+                        <a href="#" class="btn btn-primary" onclick="addRacer('boo');">Boo</a>
                     </div>
                 </div>
             </div>
-            <div id="button">
-                <button id="raceButton" class="btn btn-success btn-lg" onclick="raceSetUp();"><b>RACE!</b></button>
+            <div class="d-grid gap-2 d-md-flex position-absolute bottom-0 start-50">
+                <button id="raceButton" class="btn btn-success btn-lg" onclick="raceSetUp();">RACE!</button>
             </div>
-
- 
-  
-  
   <script src="scripts.js"></script>
-    </body>
+</main>
+</body>
+</html>
   
