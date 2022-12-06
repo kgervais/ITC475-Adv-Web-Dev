@@ -45,18 +45,31 @@ function ZoomZoom(racerId) {
     }
      else {
         if (position >= finishLine && !declareWinner) {
-            if(racerId == "racer1") {
-                winner.src = selectedRacers[0]+"win.png";
-            }
-            if(racerId == "racer2") {
-                winner.src = selectedRacers[1]+"win.png";
-            }
-            winner.style.visibility="visible";
-            declareWinner = true;
-            var winnerImg = document.getElementById(racerId);
-            winnerImg.addEventListener("click", ChangeLightColor);
+            showWinner(racerId)
         }
     }
+}
+
+function showWinner(racerId){
+    var winnerName ="";
+    if(racerId == "racer1") {
+        winnerName = selectedRacers[0];
+    }
+    if(racerId == "racer2") {
+        winnerName = selectedRacers[1];
+    }
+    winner.src = winnerName+"win.png";
+    winner.style.visibility="visible";
+    declareWinner = true;
+    //var winnerImg = document.getElementById(racerId);
+    //winnerImg.addEventListener("click", ChangeLightColor);
+
+    $.ajax({
+        url: "saveWinner.php",
+        method: "POST",
+        cache: false,
+        data: { racer1: selectedRacers[0], racer2: selectedRacers[1], winner: winnerName }
+    })
 }
 
 /*    Reset race */

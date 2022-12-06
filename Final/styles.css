@@ -1,5 +1,4 @@
 body{
-  background: url(stars.jpg) no-repeat center fixed;
   background-size: cover;
 }
 
@@ -20,11 +19,12 @@ body{
 
 
 header {
-  background-color: rgb(2, 3, 41);
+  background-color: rgba(2, 3, 41, 0.8);
   padding: 30px;
   text-align: center;
   font-size: 35px;
   color: white;
+  
 }
 .card {
 background: transparent;
@@ -55,10 +55,44 @@ color: white;
 }
 
 footer {
-  background-color: rgb(2, 3, 41);
+  background-color: rgba(2, 3, 41,0.8);
   color: white;
   font-size: 0.9em;
-  padding: 20px;
-  margin-top: 20px;
+  padding: 1px;
+  margin-top: 10px;
   text-align: center;
+}
+.search {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap:20px;
+  margin-bottom: 10px;
+}
+#stats {width: 100%;
+  max-width: 800px;
+  border-spacing: 0;
+  border-top: 4px solid white;
+  margin-bottom: 40px;}
+  
+.stats th {
+   font-size: 20px;
+   font-weight: 600;
+   color: white;
+   text-align: left;
+   padding: 8px;
+}
+
+.stats tr, td {
+  color: white;
+  padding: 8px;
+
+}
+
+
+.stats th:nth-of-type(2), .stats td:nth-of-type(2) {
+  min-width: 160px;
+}
+.stats tbody tr:nth-of-type(odd) {
+  background-color: grey;
+  color: white;
 }
